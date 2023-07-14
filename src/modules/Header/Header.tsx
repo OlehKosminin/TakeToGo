@@ -1,30 +1,23 @@
-import React, { FunctionComponent } from "react";
-import { Section, ShoppingBasket, MenuButton } from "./Header.styled";
+import React, { FunctionComponent, useState } from "react";
+import { Section } from "./Header.styled";
 
 import useScreenWidth from "../../hooks/useScreenWidth";
 
 import Logo from "../../components/Logo/Logo";
-import SideBar from "../SideBar/SideBar";
-import ContactInfoBlock from "../../components/ContactInfoBlock/ContactInfoBlock";
-import NavList from "../../components/NavList/NavList";
 
-import { fakeApi } from "../../FakeAPI/data";
-import { fakeBottomApi } from "../../FakeAPI/bottomMenuData";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
-export interface IHeaderProps {}
+export interface IHeaderProps {
+  type: string;
+}
 
 const Header: FunctionComponent<IHeaderProps> = (props) => {
+  const [type] = useState(props.type);
   const screenWidth = useScreenWidth();
-
   return (
     <Section>
-      <SideBar />
-      <Logo>TakeToGo</Logo>
-      {screenWidth >= 1200 && <ContactInfoBlock items={fakeApi} />}
-      {screenWidth >= 1200 && <NavList items={fakeBottomApi} />}
-      <MenuButton>
-        <ShoppingBasket />
-      </MenuButton>
+      <Logo margin="0 0 1em 0">TakeToGo</Logo>
+      <BurgerMenu></BurgerMenu>
     </Section>
   );
 };

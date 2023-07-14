@@ -1,59 +1,38 @@
-const baseSettings = {
-  // orange
-  baseColor: "#FF6633",
-  // green
-  secondColor: "rgb(0, 51, 51)",
-  // base font
-  baseFonts: "PFDinDisplayPro",
-  //size wp
-  pc: 1200,
-  tablet: 768,
-  mobile: 320,
-  containerWidth: 1200,
-};
-
-const sideBar = {
-  contactIconColor: baseSettings.baseColor,
-  iconHover: "#339999",
-  blackColor: "#003333",
-  iconGreyColor: "#898989",
-  // font size
-
-  fontSizeTitle: "16px",
-  fontSizeText: "12px",
-  linkTransition: "color 250ms cubic-bezier(0.4, 0, 0.2, 1);",
-  //
-  fontSizeTitlePc: "26px",
-};
-
-const shoppingBasket = {
-  fontSizePc: "60px",
-};
-
-const theme = {
-  shoppingBasket,
-  baseSettings,
-  header: {
-    baseFonts: baseSettings.baseFonts,
-    titleFontSize: 500,
-    textFontSize: 400,
-    //
-    fontSizeBaseTextHeaderMin: 25,
-    fontSizeBaseTextHeaderMax: 35,
-    //
-    headerFontSize: "3vw",
-    //green
-    accentSecondColor: baseSettings.secondColor,
-    // orange
-    accentColor: baseSettings.baseColor,
-    //
-    hoverTextColor: "rgb(0, 0, 0)",
-    textWhiteColor: "rgb(255, 255, 255)",
-    btnColor: "rgb(0, 0, 0)",
-    //
-    fontSizePc: "60px",
-    fontSizePcNum: 60,
+const theme: any = {
+  baseSettings: {
+    type: {
+      // headerType: "big" || "small",
+      headerType: "small",
+    },
+    baseColor: "rgba(26,26,26,1)",
+    secondColor: "#ffffff",
+    hoverColor: "#FF6633",
+    warningColor: "#ff4a4a",
+    // base font
+    baseFonts: "PFDinDisplayPro",
+    //size wp
+    pc: "1200",
+    tablet: "768",
+    mobile: "320",
+    containerWidth: "1200",
   },
-  sideBar,
+  media: {
+    mobile: "screen and (max-width: 319px)",
+    tablet: "screen and (min-width: 320px) and (max-width: 767px) ",
+    tabletToPc: "screen and (min-width: 768px) and (max-width: 1199px)",
+    laptop: "screen and (min-width: 1200px)",
+  },
+  logo: {
+    fontSizeMobile: "25",
+    fontSizeTablet: "30",
+    fontSizePc: "40",
+  },
+  header: {
+    titleFontSize: "500",
+    textFontSize: "400",
+
+    headerFontSize: "3vw",
+    fontSizePc: "60",
+  },
 };
 export default theme;
