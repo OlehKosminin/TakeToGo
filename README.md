@@ -7,6 +7,8 @@ It is created to deepen my knowledge in React using type script, stylized with s
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+In theme.ts you can see all dependencies in a project. You can be setting it in theme file.
+
 ## Available Scripts
 
 In the project directory, you can run:
