@@ -1,15 +1,21 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import {
   Menu,
   MenuButton,
   MenuButtonIconClose,
   MenuButtonIconOpen,
   Overlay,
+  Wrapper,
 } from "./BurgerMenu.styled";
-import useScreenWidth from "../../hooks/useScreenWidth";
+// import useScreenWidth from "../../hooks/useScreenWidth";
 
 export interface IBurgerMenuProps {
-  // children: ReactNode;
+  children: ReactNode;
 }
 
 interface IEvent {
@@ -18,10 +24,10 @@ interface IEvent {
   code?: string;
 }
 
-const BurgerMenu: FunctionComponent<IBurgerMenuProps> = () => {
+const BurgerMenu: FunctionComponent<IBurgerMenuProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const screenWidth = useScreenWidth();
+  // const screenWidth = useScreenWidth();
 
   useEffect(() => {
     const closeModal = (event: KeyboardEvent): void => {
@@ -38,6 +44,7 @@ const BurgerMenu: FunctionComponent<IBurgerMenuProps> = () => {
   const handleClickBackdrop: React.MouseEventHandler<HTMLDivElement> = (
     event: IEvent
   ) => {
+    console.log("I work");
     const { target, currentTarget } = event;
     if (target === currentTarget) {
       setIsOpen(false);
@@ -57,7 +64,9 @@ const BurgerMenu: FunctionComponent<IBurgerMenuProps> = () => {
             opacity: isOpen ? 1 : 0,
             pointerEvents: isOpen ? "auto" : "none",
           }}
-        ></Overlay>
+        >
+          <Wrapper>{props.children}</Wrapper>
+        </Overlay>
       </Menu>
     </>
   );

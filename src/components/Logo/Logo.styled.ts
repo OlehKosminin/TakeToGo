@@ -12,4 +12,14 @@ export const LogoContainer = styled.div`
   font-size: ${(props) => props.theme.headerFontSize};
 
   font-family: ${(props) => props.theme.baseSettings.baseFonts};
+
+  color: ${(props) => props.theme.baseSettings.secondColor};
+
+  @media ${(props) => props.theme.media.tabletToPc} {
+    margin: 0 auto;
+  }
+
+  @media ${(props) => props.theme.media.laptop} {
+    margin: 0;
+  }
 `;
