@@ -1,11 +1,10 @@
-export interface IIcon {
+export interface IMenuItem {
   _id: string;
-  href: string | null;
   to: string;
   position: string;
-  icon: string;
   title: string;
   text: string;
+  comments: string;
 }
 
 export interface ISideBarBottom {

@@ -1,10 +1,10 @@
 import { css } from "styled-components";
 
 type ResponsiveFontMixinProps = {
-  minWidth: number;
-  maxWidth: number;
-  minFontSize: number;
-  maxFontSize: number;
+  minWidth: string;
+  maxWidth: string;
+  minFontSize: string;
+  maxFontSize: string;
 };
 
 const responsiveFont = ({
@@ -12,12 +12,20 @@ const responsiveFont = ({
   maxWidth,
   minFontSize,
   maxFontSize,
-}: ResponsiveFontMixinProps) =>
-  css`
-    @media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px) {
+}: ResponsiveFontMixinProps) => {
+  const parsedMinWidth = parseFloat(minWidth);
+  const parsedMaxWidth = parseFloat(maxWidth);
+  const parsedMinFontSize = parseFloat(minFontSize);
+  const parsedMaxFontSize = parseFloat(maxFontSize);
+
+  return css`
+    @media (min-width: ${parsedMinWidth}px) and (max-width: ${parsedMaxWidth}px) {
       font-size: calc(
-        ${minFontSize}px + (${maxFontSize} - ${minFontSize}) *
-          ((100vw - ${minWidth}px) / (${maxWidth} - ${minWidth}))
+        ${parsedMinFontSize}px + (${parsedMaxFontSize} - ${parsedMinFontSize}) *
+          (
+            (100vw - ${parsedMinWidth}px) /
+              (${parsedMaxWidth} - ${parsedMinWidth})
+          )
       );
     }
     @media (max-width: ${minWidth}px) {
@@ -27,5 +35,6 @@ const responsiveFont = ({
       font-size: ${maxFontSize}px;
     }
   `;
+};
 
 export default responsiveFont;

@@ -1,30 +1,43 @@
 import React, { FunctionComponent } from "react";
-import { Section, ShoppingBasket, MenuButton } from "./Header.styled";
+
+import { Section, List, Item, Link, Number } from "./Header.styled";
+
+import Logo from "../../components/Logo/Logo";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+
+import { menuItem } from "../../FakeAPI/menuItem";
 
 import useScreenWidth from "../../hooks/useScreenWidth";
 
-import Logo from "../../components/Logo/Logo";
-import SideBar from "../SideBar/SideBar";
-import ContactInfoBlock from "../../components/ContactInfoBlock/ContactInfoBlock";
-import NavList from "../../components/NavList/NavList";
-
-import { fakeApi } from "../../FakeAPI/data";
-import { fakeBottomApi } from "../../FakeAPI/bottomMenuData";
-
-export interface IHeaderProps {}
+export interface IHeaderProps {
+  type: string;
+}
 
 const Header: FunctionComponent<IHeaderProps> = (props) => {
   const screenWidth = useScreenWidth();
 
+  const markup = menuItem.map(({ _id, to, position, text }) => {
+    return (
+      <Link to={to} key={_id}>
+        <Item>{text}</Item>
+      </Link>
+    );
+  });
+
   return (
     <Section>
-      <SideBar />
-      <Logo>TakeToGo</Logo>
-      {screenWidth >= 1200 && <ContactInfoBlock items={fakeApi} />}
-      {screenWidth >= 1200 && <NavList items={fakeBottomApi} />}
-      <MenuButton>
-        <ShoppingBasket />
-      </MenuButton>
+      <Logo margin="0 0 1em 0">TakeToGo</Logo>
+      {screenWidth < 1199 && (
+        <BurgerMenu>
+          <List>{markup} </List>
+        </BurgerMenu>
+      )}
+      {screenWidth > 1199 && (
+        <>
+          <List>{markup} </List>
+          <Number>(063) 151 43 34</Number>
+        </>
+      )}
     </Section>
   );
 };

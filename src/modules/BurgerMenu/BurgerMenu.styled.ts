@@ -18,21 +18,24 @@ export const Menu = styled.div`
 `;
 
 export const MenuButton = styled.button`
-  ${responsiveFontMixin};
+  ${(props) =>
+    responsiveFont({
+      minWidth: props.theme.baseSettings.mobile,
+      maxWidth: props.theme.baseSettings.pc,
+      minFontSize: props.theme.logo.fontSizeMobile,
+      maxFontSize: props.theme.logo.fontSizePc,
+    })};
   font-size: ${(props) => props.theme.headerFontSize};
 
-  color: ${(props) => props.theme.btnColor};
+  font-family: ${(props) => props.theme.baseSettings.baseFonts};
+
+  color: ${(props) => props.theme.baseSettings.secondColor};
 
   background-color: transparent;
   border: transparent;
 
   display: flex;
   align-items: center;
-
-  @media screen and (min-width: ${(props) => props.theme.baseSettings.pc}px) {
-    margin-left: 26px;
-    margin-top: 15px;
-  }
 `;
 
 export const MenuButtonIconClose = styled(GrClose)`
@@ -45,12 +48,13 @@ export const MenuButtonIconOpen = styled(GiHamburgerMenu)`
 
 export const Overlay = styled.div`
   position: fixed;
-  /* z-index: 999; */
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(87, 86, 86, 0.6);
+  /* background-color: tomato; */
 `;
 
 export const SideBarMenu = styled.div`
@@ -69,43 +73,20 @@ export const SideBarMenu = styled.div`
   padding: 10px 0;
 `;
 
-export const TryIt = styled.div`
-  font-style: none;
-  color: ${(props) => props.theme.sideBar.blackColor};
-
-  font-size: ${(props) => props.theme.sideBar.fontSizeTitle};
-`;
-// menu pc
-
 export const Wrapper = styled.div`
   position: fixed;
-  top: 1.5em;
+  top: 0;
   left: 0;
   z-index: 11;
-  width: 100px;
+  width: fit-content;
   height: 100vh;
 
-  background-color: #fff;
+  background-color: ${(props) => props.theme.burgerMenu.bgColor};
+
+  padding: 20px 40px;
+  /* opacity: 0.9; */
 
   -webkit-box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
   box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
-`;
-export const TextUnderButton = styled.div`
-  position: fixed;
-  top: 1.5em;
-  left: 0;
-  z-index: 11;
-  width: 100px;
-  height: 90px;
-
-  background-color: #fff;
-
-  -webkit-box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
-  -moz-box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
-  box-shadow: 30px 36px 85px -30px rgba(0, 0, 0, 0.64);
-
-  padding-top: 15px;
-
-  text-align: center;
 `;

@@ -1,60 +1,59 @@
 import styled from "styled-components";
-import { BsBasket } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
 import responsiveFont from "../../mixins/responsiveFont";
 
 const responsiveFontMixin = (props: any) =>
   responsiveFont({
     minWidth: props.theme.baseSettings.mobile,
-    maxWidth: props.theme.baseSettings.tablet,
-    minFontSize: props.theme.header.fontSizeBaseTextHeaderMin,
-    maxFontSize: props.theme.header.fontSizeBaseTextHeaderMax,
+    maxWidth: props.theme.baseSettings.pc,
+    minFontSize: props.theme.logo.fontSizeMobile,
+    maxFontSize: props.theme.logo.fontSizePc,
   });
 
 export const Section = styled.header`
-  ${responsiveFontMixin};
-
   position: relative;
   display: flex;
+  justify-content: space-between;
   margin-top: 0.5vw;
 
   align-items: center;
 
-  @media screen and (min-width: ${(props) => props.theme.baseSettings.pc}px) {
-    font-size: ${(props) => props.theme.sideBar.fontSizeTitlePc};
+  padding: 0 1em 1em 1em;
 
-    margin-top: 10px;
-
-    align-items: center;
-
-    justify-content: space-between;
+  @media ${(props) => props.theme.media.tabletToPc} {
+    flex-direction: row-reverse;
   }
 `;
 
-export const ShoppingBasket = styled(BsBasket)`
-  ${(props: any) =>
-    responsiveFont({
-      minWidth: props.theme.baseSettings.mobile,
-      maxWidth: props.theme.baseSettings.tablet,
-      minFontSize: props.theme.header.fontSizeBaseTextHeaderMin,
-      maxFontSize: props.theme.header.fontSizePcNum,
-    })}
+export const Link = styled(NavLink)`
+  display: block;
+  color: ${(props) => props.theme.baseSettings.secondColor};
 
-  color: ${(props) => props.theme.header.textWhiteColor};
-  /* font-size: ${(props) => props.theme.header.headerFontSize}; */
-  padding: 0.15em;
-  @media screen and (min-width: ${(props) => props.theme.baseSettings.pc}px) {
-    font-size: ${(props) => props.theme.shoppingBasket.fontSizePc};
+  margin-bottom: 20px;
+
+  @media ${(props) => props.theme.media.laptop} {
+    margin-bottom: 0;
+  }
+`;
+export const List = styled.ul`
+  overflow: hidden;
+  text-align: start;
+
+  @media ${(props) => props.theme.media.laptop} {
+    display: flex;
   }
 `;
 
-export const MenuButton = styled.button`
-  position: absolute;
-  right: -0.3px;
+export const Item = styled.li`
+  ${responsiveFontMixin}
 
-  border-top-left-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;
+  @media ${(props) => props.theme.media.laptop} {
+    margin-right: 3vh;
+  }
+`;
 
-  border: 1px solid ${(props) => props.theme.header.accentColor};
-  background-color: ${(props) => props.theme.header.accentColor};
+export const Number = styled.a`
+  ${responsiveFontMixin}
+  color: ${(props) => props.theme.baseSettings.secondColor};
 `;
