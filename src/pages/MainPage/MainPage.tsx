@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import SectionComponent from "../../components/Section/Section";
 import Hero from "../../modules/Hero/Hero";
+import Popular from "../../modules/Popular/Popular";
 
 export interface IMainPageProps {}
 
@@ -12,9 +13,12 @@ const images = [
 
 const MainPage: FunctionComponent<IMainPageProps> = (props) => {
   return (
-    <SectionComponent color="teal">
-      <Hero images={images} />
-    </SectionComponent>
+    <>
+      <SectionComponent>
+        <Hero images={images} />
+      </SectionComponent>
+      <Popular />
+    </>
   );
 };
 

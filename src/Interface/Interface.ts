@@ -23,3 +23,26 @@ export interface ISmallMenuItem {
   position: string;
   to: string;
 }
+
+interface IPhoto {
+  _id: string;
+  category: string;
+  photoUrl: string;
+  photoId: string;
+  alt: string;
+}
+
+export interface IDishesItem {
+  _id: string;
+  title: string;
+  description: string;
+  price: string;
+  currency: string;
+  category: string;
+  type: string;
+  bought: string;
+  photo: IPhoto[];
+  discount: string;
+  weight: string;
+  ingredients: string[];
+}
