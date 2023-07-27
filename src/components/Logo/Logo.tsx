@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { LogoContainer } from "./Logo.styled";
+import { LogoContainer, Link } from "./Logo.styled";
 
 export interface ILogoProps {
   children: React.ReactNode;
@@ -8,7 +8,11 @@ export interface ILogoProps {
 }
 
 const Logo: FunctionComponent<ILogoProps> = ({ children }, props) => {
-  return <LogoContainer {...props}>{children}</LogoContainer>;
+  return (
+    <Link to="/">
+      <LogoContainer {...props}>{children}</LogoContainer>
+    </Link>
+  );
 };
 
 export default Logo;

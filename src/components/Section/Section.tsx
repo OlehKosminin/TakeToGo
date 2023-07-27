@@ -3,7 +3,6 @@ import React, { FunctionComponent, ReactNode } from "react";
 import { Section } from "./Section.styled";
 
 export interface ISectionComponentProps {
-  color: string;
   children: ReactNode;
 }
 

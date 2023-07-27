@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import responsiveFont from "../../mixins/responsiveFont";
 
 export const LogoContainer = styled.div`
@@ -21,5 +22,16 @@ export const LogoContainer = styled.div`
 
   @media ${(props) => props.theme.media.laptop} {
     margin: 0;
+  }
+`;
+
+export const Link = styled(NavLink)`
+  display: block;
+  color: ${(props) => props.theme.baseSettings.secondColor};
+
+  margin-bottom: 20px;
+
+  @media ${(props) => props.theme.media.laptop} {
+    margin-bottom: 0;
   }
 `;

@@ -99,11 +99,4 @@ export const Description = styled.p`
   text-align: center;
 
   color: ${(p) => p.theme.hero.subTitle.textColor};
-  width: ${(props) =>
-    adaptiveValue({
-      startSize: props.theme.baseSettings.mobile,
-      endSize: props.theme.baseSettings.tablet,
-      startValue: props.theme.hero.description.adaptiveValue.min,
-      endValue: props.theme.hero.description.adaptiveValue.max,
-    })};
 `;
