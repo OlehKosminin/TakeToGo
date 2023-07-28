@@ -11,21 +11,6 @@ const responsiveFontMixin = (props: any) =>
     maxFontSize: props.theme.logo.fontSizePc,
   });
 
-export const Section = styled.header`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5vw;
-
-  align-items: center;
-
-  padding: 0 1em 1em 1em;
-
-  @media ${(props) => props.theme.media.tabletToPc} {
-    flex-direction: row-reverse;
-  }
-`;
-
 export const Link = styled(NavLink)`
   display: block;
   color: ${(props) => props.theme.baseSettings.secondColor};
@@ -51,9 +36,4 @@ export const Item = styled.li`
   @media ${(props) => props.theme.media.laptop} {
     margin-right: 3vh;
   }
-`;
-
-export const Number = styled.a`
-  ${responsiveFontMixin}
-  color: ${(props) => props.theme.baseSettings.secondColor};
 `;

@@ -2,7 +2,7 @@ import React, { FunctionComponent, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import MainPage from "./pages/MainPage/MainPage";
-import Header from "./modules/Header/Header";
+import Header from "./components/Header/Header";
 
 export interface IRouterProps {
   theme: any;

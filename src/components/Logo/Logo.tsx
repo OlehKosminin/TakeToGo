@@ -4,7 +4,7 @@ import { LogoContainer, Link } from "./Logo.styled";
 
 export interface ILogoProps {
   children: React.ReactNode;
-  margin: string;
+  margin?: string;
 }
 
 const Logo: FunctionComponent<ILogoProps> = ({ children }, props) => {

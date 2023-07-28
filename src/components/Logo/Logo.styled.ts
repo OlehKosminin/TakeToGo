@@ -29,8 +29,6 @@ export const Link = styled(NavLink)`
   display: block;
   color: ${(props) => props.theme.baseSettings.secondColor};
 
-  margin-bottom: 20px;
-
   @media ${(props) => props.theme.media.laptop} {
     margin-bottom: 0;
   }
