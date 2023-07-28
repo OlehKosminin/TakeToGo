@@ -3,6 +3,7 @@ import React, { FunctionComponent } from "react";
 import SectionComponent from "../../components/Section/Section";
 import Hero from "../../modules/Hero/Hero";
 import Popular from "../../modules/Popular/Popular";
+import Footer from "../../components/Footer/Footer";
 
 export interface IMainPageProps {}
 
@@ -18,6 +19,7 @@ const MainPage: FunctionComponent<IMainPageProps> = (props) => {
         <Hero images={images} />
       </SectionComponent>
       <Popular />
+      <Footer />
     </>
   );
 };
